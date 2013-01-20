@@ -6,3 +6,10 @@ Download
   
 Download the HTML5 website [here](https://github.com/abduegal/html5-sample/archive/master.zip)  
 Download the hybrid website *download not available yet*
+
+Dependencies
+--------
+  
+The HTML5 website used the following dependencies  
+*  Boilerplate: for a quick html5 skeleton setup (contains zepto as external dependency)  
+*  Jquery mobile ui: only used the css part for a mobile ui
