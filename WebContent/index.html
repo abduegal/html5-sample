@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]>    <html class="no-js iem7"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="cleartype" content="on">
+
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+
+        <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+        <!--
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        -->
+
+        <!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
+        <!--
+        <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+        -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/jquery-mobile-ui.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="js/helper.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5B2xsCgs4mxbraCuXHIqs8jy2_EbFU_E&sensor=true"></script>
+       	<script type="text/javascript" src="http://www.google.com/jsapi?key=AIzaSyC5B2xsCgs4mxbraCuXHIqs8jy2_EbFU_E"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </head>
+    <body>
+
+		<div class="error hide"></div>
+
+        <!-- Add your site or application content here -->
+		<div data-role="header" data-theme="b" class="ui-header ui-bar-b" role="banner">
+			<h1>HTML5 Tweet viewer sample</h1>
+		</div>
+
+		<div id="loading" class="ui-body ui-body-b">
+			Fetching location data
+		</div>
+
+		<div id="content" data-role="content" data-theme="b" class="ui-body ui-body-b hide">
+			<h1>Tweet viewer</h1>
+			<p>Search for a tweet</p>
+			<input class="input" type="text" id="q"/>
+			<input class="ui-bar-b" id="find" type="button" value="Find"/>
+			
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<div id="map_canvas" style="height:300px"></div>
+				</div>
+				<div class="ui-block-b" id="tweets" style="height: 300px; overflow-y: auto;">
+					
+				</div>
+			</div>			
+		</div>
+  
+    </body>
+</html>
