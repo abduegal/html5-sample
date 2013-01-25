@@ -86,7 +86,7 @@ function Tweets(gMap){
 		var self = this;
 		$('#find').click(function(){
 			$.ajax({
-			    url: twitterApi + 'geocode=' + self.lat + ',' + self.lon + ',150km&q='+$('#q').val(),
+			    url: twitterApi + 'geocode=' + self.lat + ',' + self.lon + ',30km&q='+$('#q').val(),
 			    dataType: 'jsonp',
 			    success: function(data, textStatus, jqXHR) { 
 			    	self.jsonData = data.results;
