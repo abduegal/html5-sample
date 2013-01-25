@@ -109,12 +109,12 @@ function Tweets(gMap){
 	this.fillTweets = function(){
 		$('#tweets').html('');
 		this.googleMaps.clearOverlays();
+		this.dataIndex = 0;
 		for(var i = 0; i < this.jsonData.length; i++){
 			if(this.jsonData[i].location != null && this.jsonData[i].location != ''){
 				$('#tweets').append('<div id="s'+this.jsonData[i].from_user_id+'" class="tweet"><b>' + this.jsonData[i].from_user_name + '</b> '+ this.jsonData[i].text + '</div>');
 				var self = this;
-				var data = self.jsonData[i];
-				this.placeMarker(data);
+				this.placeMarker(self.jsonData[i]);
 			}
 		}
 	};
@@ -126,7 +126,6 @@ function Tweets(gMap){
 	};
 	
 	this.placeMarker = function(data){
-		this.data = data;
 		this.googleMaps.geocoder.geocode({ 'address': data.location.trim() }, this.processGeocode);
 	};
 	
@@ -137,8 +136,8 @@ function Tweets(gMap){
 			var marker = new google.maps.Marker({
 	              map: self.googleMaps.map, 
 	              position: new google.maps.LatLng(res.geometry.location.Ya + (Math.random()/1000), res.geometry.location.Za) ,
-	              title: self.data.from_user_name,
-	              id: self.data.from_user_id
+	              title: self.jsonData[self.dataIndex].from_user_name,
+	              id: self.jsonData[self.dataIndex].from_user_id
 	        });
 			google.maps.event.addListener(marker, 'click', function(event) {
 				self.refreshTweets();
