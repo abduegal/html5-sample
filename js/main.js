@@ -25,13 +25,40 @@ function Tweets(gMap){
 	 * Loads the location
 	 */
 	this.loadLocation = function(){
+		var self = this;
+		if (navigator.geolocation){
+			navigator.geolocation.getCurrentPosition(
+				function(position){
+					self.lat = position.coords.latitude;
+					self.lon = position.coords.longitude;
+					$('#content').append('Current location city: '+ google.loader.ClientLocation.address.city + '<br/>');
+				    $('#loading').hide();
+				    $('#content').show();
+				    $('#content').append('Location fetched though IP in '+ ( new Date().getMilliseconds() - self.locationTimer) + 'ms');
+				    self.googleMaps.setCenter(self.lat, self.lon);
+				    self.googleMaps.initialize();
+				},
+				function(){
+					self.loadIPLocation();
+				}
+			);
+	    }
+		else{
+			this.loadIPLocation();
+		}
+	};
+	
+	/**
+	 * Call this when unable to get GPS location
+	 */
+	this.loadIPLocation = function(){
 		if(google.loader.ClientLocation){
 		    this.lat = google.loader.ClientLocation.latitude;
 		    this.lon = google.loader.ClientLocation.longitude;
 		    $('#content').append('Current location city: '+ google.loader.ClientLocation.address.city + '<br/>');
 		    $('#loading').hide();
 		    $('#content').show();
-		    $('#content').append('Location fetched in '+ ( new Date().getMilliseconds() - this.locationTimer) + 'ms');
+		    $('#content').append('Location fetched though IP in '+ ( new Date().getMilliseconds() - this.locationTimer) + 'ms');
 		    this.googleMaps.setCenter(this.lat, this.lon);
 		    this.googleMaps.initialize();
 		}
