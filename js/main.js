@@ -111,7 +111,7 @@ function Tweets(gMap){
 		this.googleMaps.clearOverlays();
 		for(var i = 0; i < this.jsonData.length; i++){
 			if(this.jsonData[i].location != null && this.jsonData[i].location != ''){
-				$('#tweets').append('<div id="s'+this.jsonData[i].from_user_id+'" class="tweet">' + this.jsonData[i].text + '</div>');
+				$('#tweets').append('<div id="s'+this.jsonData[i].from_user_id+'" class="tweet"><b>' + this.jsonData[i].from_user_name + '</b>'+ this.jsonData[i].text + '</div>');
 				var self = this;
 				var data = self.jsonData[i];
 				this.placeMarker(data);
