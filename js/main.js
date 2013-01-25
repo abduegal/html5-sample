@@ -31,7 +31,7 @@ function Tweets(gMap){
 				function(position){
 					self.lat = position.coords.latitude;
 					self.lon = position.coords.longitude;
-					var latlng = new google.maps.LatLng(self.lat, self.log);
+					var latlng = new google.maps.LatLng(self.lat, self.lon);
 				    self.googleMaps.geocoder.geocode({'latLng': latlng}, function(results, status) {
 				        if (status == google.maps.GeocoderStatus.OK) {
 				          if (results[0]) {
