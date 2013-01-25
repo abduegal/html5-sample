@@ -35,8 +35,8 @@ function Tweets(gMap){
 				    self.googleMaps.geocoder.geocode({'latLng': latlng}, function(results, status) {
 				        if (status == google.maps.GeocoderStatus.OK) {
 				          if (results[0]) {
-								$('#content').append('<label>Current location: '+ results[0].formatted_address + '</label>');
-							    $('#content').append('<label>Location fetched though GPS in '+ ( new Date().getMilliseconds() - self.locationTimer) + 'ms </label>');
+								$('#content').append('<label style="display:block;">Current location: '+ results[0].formatted_address + '</label>');
+							    $('#content').append('<label style="display:block;">Location fetched though GPS in '+ ( new Date().getMilliseconds() - self.locationTimer) + 'ms </label>');
 				          }else{
 								self.loadIPLocation();
 				          }
