@@ -142,8 +142,8 @@ function Tweets(gMap){
 			google.maps.event.addListener(marker, 'click', function(event) {
 				self.refreshTweets();
 				$('#tweets').animate({
-			         scrollTop: $('#s'+marker.id).offset().top - 400
-			     }, 2000);
+			         scrollTop: $('#s'+marker.id).offset().top
+			     }, 1000);
 				$('#s'+marker.id).addClass('active');
 			});
 			self.googleMaps.markersArray.push(marker);
