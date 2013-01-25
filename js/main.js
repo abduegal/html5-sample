@@ -31,7 +31,14 @@ function Tweets(gMap){
 				function(position){
 					self.lat = position.coords.latitude;
 					self.lon = position.coords.longitude;
-					$('#content').append('Current location city: '+ google.loader.ClientLocation.address.city + '<br/>');
+					var latlng = new google.maps.LatLng(lat, lng);
+				    geocoder.geocode({'latLng': latlng}, function(results, status) {
+				        if (status == google.maps.GeocoderStatus.OK) {
+				          if (results[1]) {
+								$('#content').append('Current location city: '+ results[1].formatted_address + '<br/>');
+				          }
+				        }
+				    });					
 				    $('#loading').hide();
 				    $('#content').show();
 				    $('#content').append('Location fetched though IP in '+ ( new Date().getMilliseconds() - self.locationTimer) + 'ms');
