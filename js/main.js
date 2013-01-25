@@ -35,13 +35,17 @@ function Tweets(gMap){
 				    self.googleMaps.geocoder.geocode({'latLng': latlng}, function(results, status) {
 				        if (status == google.maps.GeocoderStatus.OK) {
 				          if (results[0]) {
-								$('#content').append('Current location: '+ results[0].formatted_address + '<br/>');
+								$('#content').append('<label>Current location: '+ results[0].formatted_address + '</label>');
+							    $('#content').append('<label>Location fetched though GPS in '+ ( new Date().getMilliseconds() - self.locationTimer) + 'ms </label>');
+				          }else{
+								self.loadIPLocation();
 				          }
+				        }else{
+							self.loadIPLocation();
 				        }
 				    });					
 				    $('#loading').hide();
 				    $('#content').show();
-				    $('#content').append('Location fetched though GPS in '+ ( new Date().getMilliseconds() - self.locationTimer) + 'ms');
 				    self.googleMaps.setCenter(self.lat, self.lon);
 				    self.googleMaps.initialize();
 				},
