@@ -32,7 +32,7 @@ function Tweets(gMap){
 					self.lat = position.coords.latitude;
 					self.lon = position.coords.longitude;
 					var latlng = new google.maps.LatLng(self.lat, self.log);
-				    geocoder.geocode({'latLng': latlng}, function(results, status) {
+				    self.googleMaps.geocoder.geocode({'latLng': latlng}, function(results, status) {
 				        if (status == google.maps.GeocoderStatus.OK) {
 				          if (results[1]) {
 								$('#content').append('Current location city: '+ results[1].formatted_address + '<br/>');
