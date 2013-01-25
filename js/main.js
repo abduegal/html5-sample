@@ -148,7 +148,7 @@ function Tweets(gMap){
 			});
 			self.googleMaps.markersArray.push(marker);
 		}else{
-			console.error(self.data.location);
+			console.error(self.jsonData[self.dataIndex].location);
 			console.error(results);
 		}
 		self.dataIndex++;
