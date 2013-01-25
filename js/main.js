@@ -151,6 +151,7 @@ function Tweets(gMap){
 			console.error(self.data.location);
 			console.error(results);
 		}
+		self.dataIndex++;
 	};
 	
 }
