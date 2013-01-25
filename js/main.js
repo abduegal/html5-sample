@@ -164,6 +164,7 @@ function GoogleMaps() {
 	this.map;
 	this.geocoder;
 	this.markersArray = new Array();
+	this.geocoder = new google.maps.Geocoder();
 	
 	this.initialize = function() {
 		var mapOptions = {
@@ -172,7 +173,6 @@ function GoogleMaps() {
 			mapTypeId : google.maps.MapTypeId.ROADMAP
 		};
 		this.map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-		this.geocoder = new google.maps.Geocoder();
 	};
 	
 	this.setCenter = function(lat, long){
